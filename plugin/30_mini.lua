@@ -492,6 +492,7 @@ later(function()
       -- Highlight a fixed set of common words. Will be highlighted in any place,
       -- not like "only in comments".
       fixme = hi_words({ 'FIXME', 'Fixme', 'fixme' }, 'MiniHipatternsFixme'),
+      nocommit = hi_words({ 'nocommit', 'nocommit', 'nocommit' }, 'MiniHipatternsFixme'),
       hack = hi_words({ 'HACK', 'Hack', 'hack' }, 'MiniHipatternsHack'),
       todo = hi_words({ 'TODO', 'Todo', 'todo' }, 'MiniHipatternsTodo'),
       note = hi_words({ 'NOTE', 'Note', 'note' }, 'MiniHipatternsNote'),
