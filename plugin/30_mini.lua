@@ -268,6 +268,9 @@ later(function()
   local miniclue = require('mini.clue')
   -- stylua: ignore
   miniclue.setup({
+    window = {
+      delay = 500
+    },
     -- Define which clues to show. By default shows only clues for custom mappings
     -- (uses `desc` field from the mapping; takes precedence over custom clue).
     clues = {
