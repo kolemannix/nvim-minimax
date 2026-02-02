@@ -18,6 +18,16 @@
 -- General ====================================================================
 vim.g.mapleader = ' ' -- Use `<Space>` as <Leader> key
 
+-- k1 file detection
+vim.cmd [[ au BufRead,BufNewFile *.k1 set syntax=rust ]]
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile' }, {
+  pattern = '*.k1',
+  callback = function(event)
+    vim.cmd [[ set filetype=k1 ]]
+    vim.cmd [[ set syntax=rust ]]
+  end,
+})
+
 vim.o.mouse       = 'a'            -- Enable mouse
 vim.o.mousescroll = 'ver:25,hor:6' -- Customize mouse scroll
 vim.o.switchbuf   = 'usetab'       -- Use already opened buffers when switching
@@ -30,6 +40,7 @@ vim.cmd('filetype plugin indent on')
 if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
 
 -- UI =========================================================================
+vim.o.scrolloff    = 10
 vim.o.breakindent    = true       -- Indent wrapped lines to match line start
 vim.o.breakindentopt = 'list:-1'  -- Add padding for lists (if 'wrap' is set)
 vim.o.colorcolumn    = '+1'       -- Draw column on the right of maximum width
@@ -48,6 +59,7 @@ vim.o.splitright     = true       -- Vertical splits will be to the right
 vim.o.winborder      = 'single'   -- Use border in floating windows
 vim.o.wrap           = false      -- Don't visually wrap lines (toggle with \w)
 
+vim.opt.grepprg = "rg --type-add 'k1:*.k1' --vimgrep --smart-case"
 
 if vim.g.neovide then
     -- Put anything you want to happen only in Neovide here
